@@ -7,14 +7,11 @@ public class SkillGrid extends Grid<Skill> {
     private static final long serialVersionUID = 5108019895920968099L;
 
     public SkillGrid() {
-        super(Skill.class);
+        super();
         setSizeFull();
-        //        withProperties("name", "keyAbility.name", "shortDescription");
-        //        withColumnHeaders("Nom", "Caractéristique clé", "Description courte");
-
-        removeAllColumns();
-        addColumn(Skill::getName);
-        addColumn(Skill::getKeyAbility);
+        
+        addColumn(Skill::getName).setCaption("Nom").setId("name");
+        addColumn(Skill::getKeyAbility).setCaption("Caractéristique clé").setId("keyAbility");
     }
 
 }

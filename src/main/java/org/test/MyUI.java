@@ -43,10 +43,29 @@ public class MyUI extends UI {
         button2.addClickListener(e -> {
             navigator.navigateTo("skill");
         });
-        buttonLayout.addComponents(button, button2);
         
+        Button button3 = new Button("Level");
+        button3.addClickListener(e -> {
+            navigator.navigateTo("level");
+        });
+
+        Button button4 = new Button("Language");
+        button4.addClickListener(e -> {
+            navigator.navigateTo("language");
+        });
+
+        Button button5 = new Button("User");
+        button5.addClickListener(e -> {
+            navigator.navigateTo("user");
+        });
+
+        buttonLayout.addComponents(button, button2, button3, button4, button5);
+
         navigator.addView("region", RegionView.class);
         navigator.addView("skill", SkillView.class);
+        navigator.addView("level", LevelView.class);
+        navigator.addView("language", LanguageView.class);
+        navigator.addView("user", UserListView.class);
 
         layout.addComponents(buttonLayout);
         layout.addComponentsAndExpand(viewlayout);

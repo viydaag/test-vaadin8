@@ -31,6 +31,7 @@ public class RegionView extends AbstractCrudView<Region> {
     public void enter(ViewChangeEvent event) {
         super.enter(event);
         grid.sort(grid.getColumn("name"), SortDirection.ASCENDING);
+
     }
 
 }
