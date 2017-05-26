@@ -68,6 +68,7 @@ public class MyUI extends UI {
         navigator.addView("user", UserListView.class);
 
         layout.addComponents(buttonLayout);
+        //        layout.addComponent(new PojoForm());
         layout.addComponentsAndExpand(viewlayout);
         
         setContent(layout);

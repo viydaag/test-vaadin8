@@ -1,12 +1,18 @@
 package org.test;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.eclipse.persistence.annotations.PrivateOwned;
 
 @Entity
 @Table(name = "Region")
@@ -21,6 +27,10 @@ public class Region extends AbstractTimestampEntity implements Serializable {
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
+
+    @OneToMany(mappedBy = "region", cascade = { CascadeType.ALL })
+    @PrivateOwned
+    private List<MultiComponentPojo> pojos = new ArrayList<>();
 
     public Region() {
         super();
@@ -45,6 +55,14 @@ public class Region extends AbstractTimestampEntity implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<MultiComponentPojo> getPojos() {
+        return pojos;
+    }
+
+    public void setPojos(List<MultiComponentPojo> pojos) {
+        this.pojos = pojos;
     }
 
     @Override

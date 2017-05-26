@@ -187,6 +187,7 @@ public abstract class AbstractCrudView<T extends Entity> extends VerticalLayout 
         } catch (Exception e) {
             Notification.show("Failed! " + e.getLocalizedMessage(), Type.ERROR_MESSAGE);
             listEntries();
+            throw e;
         }
     }
 
