@@ -1,11 +1,16 @@
 package org.test;
 
+import java.io.File;
+
 import org.test.MultiComponentPojo.EnumTypeField;
 import org.vaadin.viritin.fields.IntegerField;
 
+import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinService;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.Grid;
+import com.vaadin.ui.Image;
 import com.vaadin.ui.TextField;
 
 public class MultiComponentPojoGrid extends Grid<MultiComponentPojo> {
@@ -42,7 +47,14 @@ public class MultiComponentPojoGrid extends Grid<MultiComponentPojo> {
             EnumComboBox<EnumTypeField> field = new EnumComboBox<>(EnumTypeField.class);
             return field;
         });
-        setRowHeight(40);
+        addComponentColumn(entity -> {
+            File imageFile = new File(VaadinService.getCurrent().getBaseDirectory().getAbsolutePath() + "/WEB-INF/images/DarinL.bmp");
+            FileResource resource = new FileResource(imageFile);
+            Image image = new Image(null, resource);
+            image.setHeight(50, Unit.PIXELS);
+            return image;
+        });
+        setRowHeight(50);
     }
 
 }

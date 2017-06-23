@@ -59,13 +59,19 @@ public class MyUI extends UI {
             navigator.navigateTo("user");
         });
 
-        buttonLayout.addComponents(button, button2, button3, button4, button5);
+        Button button6 = new Button("Selector");
+        button6.addClickListener(e -> {
+            navigator.navigateTo("selector");
+        });
+
+        buttonLayout.addComponents(button, button2, button3, button4, button5, button6);
 
         navigator.addView("region", RegionView.class);
         navigator.addView("skill", SkillView.class);
         navigator.addView("level", LevelView.class);
         navigator.addView("language", LanguageView.class);
         navigator.addView("user", UserListView.class);
+        navigator.addView("selector", SubSetSelectorView.class);
 
         layout.addComponents(buttonLayout);
         //        layout.addComponent(new PojoForm());
